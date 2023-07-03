@@ -28,12 +28,12 @@ const MovieListing = () => {
 
   return (
     <>
-              <h2> 1-  Movies </h2>
+              <h2> 1-  Movies Here -  </h2>
               <div className="movie-container">
                   {rendermovies}
               </div>
 
-              <h2> 2 - Shows List </h2>
+              <h2> 2 - Shows List Here -</h2>
               <div className="movie-container">
                   {renderseries}
               </div>
