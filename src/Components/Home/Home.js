@@ -9,8 +9,12 @@ const Home = () => {
   const dispatch = useDispatch();
 
    useEffect(() => {
-       dispatch(fetchAsyncMovies());
-       dispatch(fetchAsyncseries());
+    
+        const movieText = "harry";
+        const seriesText = "Friends";
+
+        dispatch(fetchAsyncMovies(movieText));
+        dispatch(fetchAsyncseries(seriesText));
    },[dispatch]);
 
 

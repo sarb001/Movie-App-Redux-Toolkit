@@ -3,12 +3,14 @@ import axios from "axios";
 
 const initialState = {
      movies : {},
-     shows :  {}
+     shows :  {},
+     movieorseries :{},
 }
 
-export  const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies' , async () => {
-        try{
-           const res = await axios.get(`https://www.omdbapi.com/?apikey=fe8b8917&s=harry&type=movie`);
+export  const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies' , async (term) => {
+    try{
+       
+           const res = await axios.get(`https://www.omdbapi.com/?apikey=fe8b8917&s=${term}&type=movie`);
            console.log('response in Movies -',res.data);
            return res.data;
 
@@ -17,10 +19,22 @@ export  const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies' , as
         }
  })
 
- export  const fetchAsyncseries = createAsyncThunk('movies/fetchAsyncSeries' , async () => {
+ export  const fetchAsyncseries = createAsyncThunk('movies/fetchAsyncSeries' , async (term) => {
     try{
-       const res = await axios.get(`https://www.omdbapi.com/?apikey=fe8b8917&s=harry&type=series`);
+      
+       const res = await axios.get(`https://www.omdbapi.com/?apikey=fe8b8917&s=${term}&type=series`);
        console.log('response in Series -',res.data);
+       return res.data;
+
+    }catch(err){
+      console.log('error is -',err);
+    }
+})
+
+ export  const fetchAsyncMoviesorseries = createAsyncThunk('movies/fetchAsyncmovieorseries' , async (id) => {
+    try{
+       const res = await axios.get(`https://www.omdbapi.com/?apikey=fe8b8917&i=${id}&Plot=full`);
+       console.log('response in Movie or Series -',res.data);
        return res.data;
 
     }catch(err){
@@ -34,9 +48,7 @@ const movieslice = createSlice({
      name: 'movies',
      initialState,
      reducers : {
-         addMovies : (state,action) => {
-             state.shows = action.payload;
-         }
+
      },
      extraReducers : {
          [fetchAsyncMovies.pending] : () => {
@@ -52,6 +64,10 @@ const movieslice = createSlice({
          [fetchAsyncseries.fulfilled] : (state,action) => {
             console.log('fetched series ');
             return { ...state , shows : action.payload };        // initialstate ( shows ) : action.payload
+         },
+         [fetchAsyncMoviesorseries.fulfilled] : (state,action) => {
+            console.log('fetched series or Movie Detail ');
+            return { ...state , movieorseries : action.payload };        // initialstate ( shows ) : action.payload
          }
      }
 })
