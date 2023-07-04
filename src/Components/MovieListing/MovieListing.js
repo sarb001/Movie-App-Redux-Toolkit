@@ -28,14 +28,14 @@ const MovieListing = () => {
               <div className="text-main" style = {{textAlign:'center'}}>
                  <h2>   Movies Section   </h2>
               </div>
-              <div className="movie-container" style = {{display:'grid',gridTemplateColumns:'1fr 1fr 1fr 1fr',margin:'4%'}}>
+              <div className="movie-container" style = {{display:'grid' , gridTemplateColumns:'repeat(auto-fit,minmax(330px,1fr))' , margin:'1%'}}>
                   {rendermovies}
               </div>
 
               <div className="text-main" style = {{textAlign:'center'}}>
                 <h2>  Shows Section  </h2>
               </div>
-              <div className="movie-container" style = {{display:'grid',gridTemplateColumns:'1fr 1fr 1fr 1fr',margin:'4%'}}> 
+              <div className="movie-container" style = {{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(330px,1fr))',margin:'1%'}}> 
                   {renderseries}
               </div>
 
