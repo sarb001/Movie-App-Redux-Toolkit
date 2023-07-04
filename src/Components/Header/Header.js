@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchAsyncMovies, fetchAsyncseries } from '../../Features/movies/movieSlice';
@@ -13,9 +13,10 @@ const Header = () => {
     const submitdata = (e) => {
         e.preventDefault();
         console.log('term value is -',term);
-        dispatch(fetchAsyncMovies(term));
-        dispatch(fetchAsyncseries(term));
-        setTerm(" ");
+             
+          dispatch(fetchAsyncMovies(term));
+          dispatch(fetchAsyncseries(term));
+        // setTerm(" ");
     }
 
   return (
@@ -29,7 +30,8 @@ const Header = () => {
                   <form onSubmit = {submitdata} style = {{margin:'3%'}}>
                       <input type = "text"   value = {term}
                       onChange = {(e) => setTerm(e.target.value)}
-                      placeholder = 'Search Movies' style = {{width:'100%' , padding:'2% 0%',borderRadius:'14px'}} />
+                      placeholder = 'Search Movies' 
+                      style = {{width:'100%' , padding:'2% 0%',borderRadius:'14px'}} />
                   </form>
                 </div>
           </div>

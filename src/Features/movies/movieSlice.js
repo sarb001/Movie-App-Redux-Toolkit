@@ -11,7 +11,6 @@ export  const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies' , as
     try{
        
            const res = await axios.get(`https://www.omdbapi.com/?apikey=fe8b8917&s=${term}&type=movie`);
-           console.log('response in Movies -',res.data);
            return res.data;
 
         }catch(err){
@@ -23,7 +22,6 @@ export  const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies' , as
     try{
       
        const res = await axios.get(`https://www.omdbapi.com/?apikey=fe8b8917&s=${term}&type=series`);
-       console.log('response in Series -',res.data);
        return res.data;
 
     }catch(err){
@@ -34,7 +32,6 @@ export  const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies' , as
  export  const fetchAsyncMoviesorseries = createAsyncThunk('movies/fetchAsyncmovieorseries' , async (id) => {
     try{
        const res = await axios.get(`https://www.omdbapi.com/?apikey=fe8b8917&i=${id}&Plot=full`);
-       console.log('response in Movie or Series -',res.data);
        return res.data;
 
     }catch(err){

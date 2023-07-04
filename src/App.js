@@ -6,6 +6,7 @@ import Header from './Components/Header/Header';
 import MovieDetails from './Components/MovieDetails/MovieDetails';
 import PagenotFound from './Components/PagenotFound/PagenotFound';
 import Footer from './Components/Footer/Footer';
+import { useEffect } from 'react';
 
 function App() {
   return (
