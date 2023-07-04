@@ -1,0 +1,22 @@
+.header{
+     display : grid;
+     grid-template-columns: 1fr 1fr 1fr;
+     text-align: center;
+     background-color: #000080;
+}
+.logo{
+    align-self: center;
+}
+.logo > a{
+     font-size: 30px;
+     text-decoration: none;
+     color:white;
+}
+.main-img {
+    text-align: end;
+    margin-right: 5%;
+}
+.main-img > img {
+    width: 10%;
+    padding: 2%;
+}
