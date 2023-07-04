@@ -6,9 +6,6 @@ const MovieListing = () => {
 
    const movies = useSelector(state => state.movies.movies);
    const series = useSelector(state => state.movies.shows);
-   
-   console.log('movies are  -',movies);
-   console.log('Series  are  -',series);
 
    let rendermovies = "";
     rendermovies = movies.Response == "True"  ? (
@@ -28,13 +25,17 @@ const MovieListing = () => {
 
   return (
     <>
-              <h2> 1-  Movies Here -  </h2>
-              <div className="movie-container">
+              <div className="text-main" style = {{textAlign:'center'}}>
+                 <h2>   Movies Section   </h2>
+              </div>
+              <div className="movie-container" style = {{display:'grid',gridTemplateColumns:'1fr 1fr 1fr 1fr',margin:'4%'}}>
                   {rendermovies}
               </div>
 
-              <h2> 2 - Shows List Here -</h2>
-              <div className="movie-container">
+              <div className="text-main" style = {{textAlign:'center'}}>
+                <h2>  Shows Section  </h2>
+              </div>
+              <div className="movie-container" style = {{display:'grid',gridTemplateColumns:'1fr 1fr 1fr 1fr',margin:'4%'}}> 
                   {renderseries}
               </div>
 

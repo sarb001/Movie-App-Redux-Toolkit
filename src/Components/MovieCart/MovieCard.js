@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import './MovieCard.css';
 
 const MovieCard = (props) => {
   let { data } =  props;
   return (
     <>
-      <div className="card-item">
+      <div className="card-item" style = {{padding:'5%'}}>
         <Link to = {`/movie/${data.imdbID}`}>
          <div className="card-inner">
             <div className="card-top">
